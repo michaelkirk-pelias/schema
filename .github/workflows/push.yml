@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Build Docker images
         env:
-          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+          DOCKER_USERNAME: ${{ github.actor }}
+          DOCKER_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
         run: |
           curl "https://raw.githubusercontent.com/pelias/ci-tools/master/build-docker-images.sh" | bash -
